@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/5.2.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Startup’s Acquisition Status</title>
+</head>
+<body>
+    <div class="container mb-3 text-muted">
+      <body style="background-color:rgb(255, 255, 255);">
+      <h1><center><strong>Startup’s Acquisition Status Prediction</strong></h1></center>
+      
+    </div>
+    <br><br>
+    <div class="container jumbotron">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+
+              <div class="row">
+                <div class="col-sm-4">
+                    <label for="Founded_at"><b>Founded at:</b></label>
+                    <input class="form-control" type="number" min="1900" max="2022" step="1" value="2000" name="Founded_at" required/>
+                  </div>
+                  
+                <div class="col-sm-4">
+                  <label><b>Created at: </b></label>
+                  <input class="form-control" type="number" min="1900" max="2022" step="1" value="2000" name="Created_at" required/>
+                </div>
+                
+              <div class="col-sm-4">
+                <label><b>Updated at: </b></label>
+                <input class="form-control" type="number" min="1900" max="2022" step="1" value="2000" name="Updated_at" required/>
+              </div>
+
+            </div><br>
+
+            <div class="row">
+            <div class="col-sm-4">
+              <label><b>Closed at:</b></label>    	
+              <input class="form-control" type="number" min="1900" max="2022" step="1" value="2000" name="Closed_at" required/>
+              
+            </div>
+
+          <div class="col-sm-4">
+            <label><b>Company Age: </b></label>    	
+            <input class="form-control" type="number" name="Company_age" required>            
+          </div>
+        
+                <div class="col-sm-4">
+                  <label ><b>Investment Rounds:</b></label>
+                  <input class="form-control" type="number" name="Investment_rounds" required>
+                </div>
+                </div><br>
+          
+                <div class="row">
+                <div class="col-sm-4">
+                  <label></label><b>Funding Rounds: </b></label>    	
+                  <input class="form-control" type="number"  name="Funding_rounds" required>            
+              </div>
+
+                <div class="col-sm-4">
+                  <label><b>Funding Total Usd:</b></label>
+                  <input class="form-control" type="number" name="Funding_total_usd" required>
+                </div>
+             
+                <div class="col-sm-4">
+                  <label ><b>Milestones:</b></label>
+                  <input class="form-control" type="number" name="milestones" required>
+              </div>
+            </div><br>
+           
+            <div class="row">
+                <div class="col-sm-4">
+                  <label><b>Relationships:</b></label>
+                  <input class="form-control" type="number" name="relationships" required>
+                </div>
+
+                <div class="col-sm-4">
+                  <label><b>Return on Investment: </b></label>
+                  <input class="form-control" type="number" name="Return_on_investment" required>
+                </div>
+
+                <div class="col-sm-4">
+                  <label ><b>Category Code: </b></label>
+                  <select class="form-select" name="Category_code">
+                        <option value="Advertising"> Advertising</option>
+                        <option value="Biotech"> Biotech</option>
+                        <option value="Ecommerce"> Ecommerce</option>
+                        <option value="Consulting"> Consulting</option>
+                        <option value="Games_Video"> Games Video</option>
+                        <option value="Enterprise"> Enterprise</option>
+                        <option value="Software"> Software</option>
+                        <option value="Web"> Web</option>
+                        <option value="Mobile"> Mobile</option>
+                        <option value="Other"> Other</option> 
+                    </select>
+                </div>
+            </div><br>
+            
+            <div class="row">
+          
+              <div class="col-sm-4">
+                <label for="Country_code"><b>Country Code: </b></label>
+                <select class="form-select" id="Country_code" name="Country_code">
+                      <option value="AUS"> AUS</option>
+                      <option value="CAN"> CAN</option>
+                      <option value="DEU"> DEU</option>
+                      <option value="ESP"> ESP</option>
+                      <option value="FRA"> FRA</option>
+                      <option value="GBR"> GBR</option>
+                      <option value="IND"> IND</option>
+                      <option value="ISR"> ISR</option>
+                      <option value="NLD"> NLD</option>
+                      <option value="USA"> USA</option>
+                      <option value="other"> other</option>                       
+                  </select>
+              </div>
+              </div><br>
+
+            <div><center>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-large"><strong><b>Predict</b></strong></button>
+                </div>
+            </div></center>
+
+            <div><center>
+              {% if result %}
+              <h2> {{result}}</h2>
+              {% endif %}
+          </div></center>
+
+        </form>
+        </div>
+        
+        </div class="footer">
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+          <p class="mb-1"><strong> ©2022 Developed using Django and Heroku </strong></p> 
+            <ul class="list-inline">
+              <a href="https://github.com/Miteshverma9/heroku" target="blank" text= Github < style="font-size:40px" class="fa"><img src = "https://cdn-icons-png.flaticon.com/512/25/25231.png" style= "width:3%""></img></a>
+            </ul>
+        </footer>
+         <div><left>
+             <h1>Team Members</h1>
+             <p>
+             <li><a href="https://www.linkedin.com/in/amira-taha-03b892206/">Amira Taha</a></li>
+             <li><a href="https://www.linkedin.com/in/arundhati-v-84a688109/">Arundhati Varude</a></li>
+             <li><a href="https://www.linkedin.com/in/khushi-chhajed-865b5a1b2/">Khushi Chhajed</a></li>
+             <li><a href="https://www.linkedin.com/in/mitesh-verma-049b12b3/">Mitesh Verma</a></li>
+             <li><a href="https://www.linkedin.com/in/nada-hegazy-5a4027135/">Nada Hegazy</a></li>
+             <li><a href="https://www.linkedin.com/in/rashmi-shrivastava-a197641a4/">Rashmi Shrivastava</a></li>
+             <li><a href="https://www.linkedin.com/in/vaibhav-sinha-805789217/">Vaibhav Sinha</a></li>
+             </p>
+          </div></left>
+        </body>
+        </html>
+
