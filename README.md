@@ -357,4 +357,4 @@ before and after tuning, So can go with both of the parameters.
 <img src="template\webpage_screenshot.PNG" alt="webpage screenshot">
 
  **App link:**  
- https://startup2prediction.herokuapp.com/
+ https://technocolabsteamb.herokuapp.com
